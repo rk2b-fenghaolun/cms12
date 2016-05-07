@@ -41,7 +41,8 @@ public class BaseAction extends ActionSupport {
 	 * 跳转到栏目管理
 	 * */
 	@Action(value="toCategoryManager",results={
-			@Result(name="success",location="/WEB-INF/jsp/manager/categoryManager.jsp")
+			@Result(name="success",
+					location="/WEB-INF/jsp/manager/categoryManager.jsp")
 	})
 	public String toCategoryManager(){
 		

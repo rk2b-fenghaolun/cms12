@@ -18,7 +18,9 @@
                 <div class="sign">
                 	<span>欢迎您系统管理员</span>
                     <span class="sp_home">首页</span>
-                    <span class="sp_backstage">后台管理</span>
+                    <span class="sp_backstage">
+                    	<a href="manager/toIndex.action">后台管理</a>
+                    </span>
                     <span class="sp_signout">退出</span>
                 </div>
             </div> 
