@@ -48,6 +48,18 @@ public class BaseAction extends ActionSupport {
 		
 		return "success";
 	}
+	/**
+	 * @author 冯浩伦
+	 * 跳转到后台管理中添加学生页面！
+	 * http://localhost:8888/cms/manager/toAddStudent.action
+	 * */
+	@Action(value="toAddStudent",results={
+			@Result(name="success",location="/WEB-INF/jsp/manager/addStudent.jsp")
+	})
+	public String toAddStudent(){
+		
+		return "success";
+	}
 	
 	
 }
