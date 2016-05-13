@@ -1,8 +1,13 @@
 package com.briup.cms.web.action.manager;
 
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
+import com.briup.cms.bean.Category;
+import com.briup.cms.service.ICategoryService;
+import com.briup.cms.service.impl.CategoryServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 后台基础Action
@@ -10,6 +15,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BaseAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
+	private List<Category> list;
+	private ICategoryService categoryService = new CategoryServiceImpl();
 	
 	/**
 	 * 跳转到后台管理首页！
@@ -45,8 +52,15 @@ public class BaseAction extends ActionSupport {
 					location="/WEB-INF/jsp/manager/categoryManager.jsp")
 	})
 	public String toCategoryManager(){
-		
-		return "success";
+		list = categoryService.list();
+		return "success" ;
+	}
+	public List<Category> getList() {
+		return list;
+	}
+
+	public void setList(List<Category> list) {
+		this.list = list;
 	}
 	/**
 	 * @author 冯浩伦
@@ -60,6 +74,16 @@ public class BaseAction extends ActionSupport {
 		
 		return "success";
 	}
-	
-	
+	/**
+	 * @author 冯浩伦
+	 * 跳转到学生管理
+	 * */
+	@Action(value="toStudentManager",results={
+			@Result(name="success",
+					location="/WEB-INF/jsp/manager/studentManager.jsp")
+	})
+	public String toStudentManager(){
+		return "success" ;
+	}
+
 }

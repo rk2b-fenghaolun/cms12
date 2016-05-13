@@ -1,5 +1,7 @@
 package com.briup.cms.service;
 
+import java.util.List;
+
 import com.briup.cms.bean.Category;
 
 /**
@@ -13,4 +15,6 @@ public interface ICategoryService {
 	 * 添加栏目
 	 * */
 	void add(Category category);
+	List<Category> list();
+	void delete(Long id);
 }

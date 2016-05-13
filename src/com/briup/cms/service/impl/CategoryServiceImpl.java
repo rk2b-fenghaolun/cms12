@@ -1,5 +1,11 @@
 package com.briup.cms.service.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.briup.cms.bean.Category;
 import com.briup.cms.dao.CategoryDao;
 import com.briup.cms.service.ICategoryService;
@@ -7,6 +13,7 @@ import com.briup.cms.service.ICategoryService;
  * 业务逻辑实现类
  * 事务管理
  * 复杂业务逻辑处理
+ * @param <category>
  * */
 public class CategoryServiceImpl implements ICategoryService {
 	//关联Dao对象
@@ -17,6 +24,14 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public void add(Category category) {
 		categoryDao.save(category);
+	}
+	public List<Category> list(){
+		return categoryDao.list();
+	}
+	@Override
+	public void delete(Long id) {
+		categoryDao.delete(id);
+		
 	}
 
 }

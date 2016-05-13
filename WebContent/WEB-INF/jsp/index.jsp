@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,13 +28,9 @@
             <div class="nav">
             	<ul class="navUI">
                 	<li><a href="javascript:void(0);">首页</a></li>
-                    <li><a href="javascript:void(0);">教师风采</a></li>
-                    <li><a href="javascript:void(0);">爱在身边1</a></li>
-                    <li><a href="javascript:void(0);">好书相伴</a></li>
-                    <li><a href="javascript:void(0);">读书心得2</a></li>
-                    <li><a href="javascript:void(0);">智慧课堂</a></li>
-                    <li><a href="javascript:void(0);">教育教研</a></li>
-                    <li><a href="javascript:void(0);">特色活动</a></li>
+                	<c:forEach items="${list}" var="c">
+                	<li><a href="toList.action">${c.name}</a></li>
+                	</c:forEach>
                 </ul>
             </div>
             <div class="banner">

@@ -4,6 +4,6 @@
 <hr>
 <form action="addStudent.action" method="post">
 	学生姓名：<input type="text" name="name"/><br/>
-	学生号：<input type="text" name="number"/><br/>
+	学生学号：<input type="text" name="number"/><br/>
 	<input type="submit" value="添加"/>
 </form>
