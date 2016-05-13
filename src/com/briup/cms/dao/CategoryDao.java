@@ -73,6 +73,9 @@ public class CategoryDao {
 		}
 		return list;
 	}
+	
+	
+	
 	public void delete(Long id) {
 		try {
 			Connection conn = null;

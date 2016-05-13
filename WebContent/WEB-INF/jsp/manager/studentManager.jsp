@@ -28,8 +28,28 @@ td {
 	<td><input type = "checkbox" value="${s.id} }"/></td>
 		<td><a>${s.name}</a></td>       	
 		<td><a>${s.number}</a></td> 
-		<td><a href="">修改</a> <a href="deleteStudent.action?id=${s.id}">删除</a></td>
-		
+		<td>
+		<a href="javascript:void(0);" val="${s.id}" class="update">修改</a> 
+		<a href="javascript:void(0);" val="${s.id}" class="delete">删除</a></td>	
 	</tr>
 	</c:forEach>
 </table>
+<script>
+$(function(){
+	$(".update").off();
+	$(".update").on("click",function(){
+		alert("功能未完善");
+	});
+	
+	
+	$(".delete").off();
+	$(".delete").on("click",function(){
+		var id=$(this).attr("val");
+		$.post("deleteStudent.action",{id:id},function(){
+			alert("删除成功");
+			$(".baseUI li:contions('栏目管理')").trigger("click");
+		});
+	});
+	
+});
+</script>
