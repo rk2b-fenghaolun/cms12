@@ -2,7 +2,6 @@ package com.briup.cms.web.action.manager;
 
 import org.apache.struts2.convention.annotation.Action;
 
-import com.briup.cms.bean.Category;
 import com.briup.cms.bean.Student;
 import com.briup.cms.service.IStudentService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,6 +13,7 @@ public class StudentAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private Long id;
 	private String name;
 	private String number;
 
@@ -23,6 +23,24 @@ public class StudentAction extends ActionSupport {
 	public void addStudent() {
 		Student student = new Student(null, name, number);
 		studentService.add(student);
+	}
+    
+	@Action(value = "deleteStudent")
+	public void deleteStudent(){
+		studentService.delete(id);
+	}
+	
+	
+	
+	
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {

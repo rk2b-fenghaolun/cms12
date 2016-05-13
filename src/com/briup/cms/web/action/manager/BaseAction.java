@@ -6,8 +6,11 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.briup.cms.bean.Category;
+import com.briup.cms.bean.Student;
 import com.briup.cms.service.ICategoryService;
+import com.briup.cms.service.IStudentService;
 import com.briup.cms.service.impl.CategoryServiceImpl;
+import com.briup.cms.service.impl.StudentServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 后台基础Action
@@ -16,7 +19,9 @@ public class BaseAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	private List<Category> list;
+	private List<Student> studentlist;
 	private ICategoryService categoryService = new CategoryServiceImpl();
+	private IStudentService studentService = new StudentServiceImpl();
 	
 	/**
 	 * 跳转到后台管理首页！
@@ -83,7 +88,17 @@ public class BaseAction extends ActionSupport {
 					location="/WEB-INF/jsp/manager/studentManager.jsp")
 	})
 	public String toStudentManager(){
+		studentlist = studentService.studentlist();
 		return "success" ;
 	}
+
+	public List<Student> getStudentlist() {
+		return studentlist;
+	}
+
+	public void setStudentlist(List<Student> studentlist) {
+		this.studentlist = studentlist;
+	}
+	
 
 }
