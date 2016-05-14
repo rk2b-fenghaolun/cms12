@@ -36,20 +36,17 @@ td {
 </table>
 <script>
 $(function(){
-	$(".update").off();
-	$(".update").on("click",function(){
-		alert("功能未完善");
-	});
-	
-	
+	var url = "deleteStudent.action";
 	$(".delete").off();
 	$(".delete").on("click",function(){
 		var id=$(this).attr("val");
-		$.post("deleteStudent.action",{id:id},function(){
-			alert("删除成功");
-			$(".baseUI li:contions('栏目管理')").trigger("click");
-		});
+		var flag = confirm("确认删除吗?");
+		if(flag){
+			$.post(url,{id:id},function(){
+				//模拟点击“栏目管理”
+				$(".baseUI li:contains('学生管理')").trigger("click");
+			});
+		}
 	});
-	
 });
 </script>

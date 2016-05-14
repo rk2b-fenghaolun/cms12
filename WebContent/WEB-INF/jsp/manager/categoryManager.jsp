@@ -28,8 +28,26 @@ td {
 	<td><input type = "checkbox" value="${c.id} }"/></td>
 		<td><a>${c.name}</a></td>       	
 		<td><a>${c.code}</a></td> 
-		<td><a href="">修改</a> <a href="deleteCategory.action?id=${c.id}">删除</a></td>
-		
+		<td>
+		<a href="javascript:void(0);" val="${c.id}" class="update">修改</a> 
+		<a href="javascript:void(0);" val="${c.id}" class="delete">删除</a>
+		</td>		
 	</tr>
 	</c:forEach>
 </table>
+<script>
+$(function(){
+	var url = "deleteCategory.action";
+	$(".delete").off();
+	$(".delete").on("click",function(){
+		var id=$(this).attr("val");
+		var flag = confirm("确认删除吗?");
+		if(flag){
+			$.post(url,{id:id},function(){
+				//模拟点击“栏目管理”
+				$(".baseUI li:contains('栏目管理')").trigger("click");
+			});
+		}
+	});
+});
+</script>

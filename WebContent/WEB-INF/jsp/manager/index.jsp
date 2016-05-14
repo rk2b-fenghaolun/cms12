@@ -48,7 +48,7 @@ $(function(){
                     	<em class="base_userset"></em><span>栏目管理</span></a>
                     </li>
                     
-                    <li><a href="#">
+                    <li url="toAddArticle.action"><a href="#">
                     	<em class="base_roll"></em><span>信息发布</span></a>
                     </li>
                     <li><a href="#">
