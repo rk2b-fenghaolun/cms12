@@ -44,7 +44,6 @@ public class BaseAction extends ActionSupport {
 			@Result(name="success",location="/WEB-INF/jsp/manager/addCategory.jsp")
 	})
 	public String toAddCategory(){
-		
 		return "success";
 	}
 	
@@ -62,10 +61,16 @@ public class BaseAction extends ActionSupport {
 	}
 	public List<Category> getList() {
 		return list;
-	}
-
-	public void setList(List<Category> list) {
-		this.list = list;
+	}/***
+	*@author 冯浩伦
+	*跳转到信息发布页面
+	**/
+	@Action(value="toAddArticle",results={
+			@Result(name="success",location="/WEB-INF/jsp/manager/addArticle.jsp")
+	})
+	public String toAddArticle(){
+		list = categoryService.list();
+		return "success";
 	}
 	/**
 	 * @author 冯浩伦
@@ -76,7 +81,6 @@ public class BaseAction extends ActionSupport {
 			@Result(name="success",location="/WEB-INF/jsp/manager/addStudent.jsp")
 	})
 	public String toAddStudent(){
-		
 		return "success";
 	}
 	/**

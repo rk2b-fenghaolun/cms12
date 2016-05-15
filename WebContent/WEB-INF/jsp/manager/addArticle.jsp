@@ -1,22 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript">
-$(function(){
-	var form = $("#addArticleForm")
-	form.off();
-	form.on("submit",function()
-	
-	{
-		form.ajaxSubmit(function(){
-			
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script>
+	$(function(){
+		var form = $("#addArticleForm")
+		var now=new Date();
+        var myDate = now.toLocaleDateString();
+		form.off();
+		form.on("submit",function()
+		{
+			form.ajaxSubmit(function(){
 			alert("添加成功");
-			});
-		
-		return false;
+		    });
+	        return false;
+		});
 	});
-});
-</script>  
+</script> 
 <h1>信息发布</h1>
 <hr>
 <form action="addArticle.action" method="post" id="addArticleForm">
@@ -30,5 +29,6 @@ $(function(){
 	</select>
 	<br>
 	信息内容：<textarea rows="s" cols="20" name="content" ></textarea><br/>
+	
 	<input type="submit" value="发布"/>
 </form>

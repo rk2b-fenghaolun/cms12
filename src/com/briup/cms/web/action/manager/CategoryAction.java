@@ -20,8 +20,7 @@ public class CategoryAction extends ActionSupport {
 	private String code;
 	private Long id;
 	
-	private ICategoryService categoryService 
-							= new CategoryServiceImpl();
+	private ICategoryService categoryService = new CategoryServiceImpl();
 	private List<Category> list;
 	/**
 	 * 处理添加栏目信息的方法
@@ -49,7 +48,7 @@ public class CategoryAction extends ActionSupport {
 	public void deleteCategory(){
 		categoryService.delete(id);
 	}
-	
+
 	
 	
 	public Long getId() {

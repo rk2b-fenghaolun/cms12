@@ -1,9 +1,9 @@
 package com.briup.cms.web.action.manager;
 
+
 import java.util.Date;
 
 import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Result;
 
 import com.briup.cms.bean.Article;
 import com.briup.cms.service.IArticleService;
@@ -12,6 +12,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ArticleAction  extends ActionSupport{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private IArticleService articleService = new ArticleServiceImpl();
 	
 	private String title;
@@ -19,18 +23,14 @@ public class ArticleAction  extends ActionSupport{
 	private Date articledate;
 	private String content;
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Action(value="toAddArticle",results={
-			@Result(name="success",location="/WEB-INF/jsp/manager/addArticle.jsp")
-	})
-	public String toAddArticle(){
+	
+	@Action(value="addArticle")
+	public void addArticle(){
 		Article article = new Article(null,title,name,content,articledate);
 		articleService.add(article);
-		return "success";
 	}
+	
+	
 	public String getTitle() {
 		return title;
 	}
@@ -56,4 +56,5 @@ public class ArticleAction  extends ActionSupport{
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 }
